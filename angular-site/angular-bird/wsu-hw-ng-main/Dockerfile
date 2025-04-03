@@ -15,7 +15,6 @@ COPY angular.json /build/
 COPY *.json /build/
 COPY *.js /build/
 COPY README.md /build/
-COPY src /build/
+COPY ./src /build/src/
 
-EXPOSE 4200
 CMD ["ng", "serve", "--host", "0.0.0.0"]
