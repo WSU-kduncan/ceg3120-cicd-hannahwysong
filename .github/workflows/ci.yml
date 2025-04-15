@@ -16,7 +16,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-	  context: /angular-site/angular-bird/wsu-hw-ng-main
           file: ./Dockerfile 
           push: true
           tags: user/wysong-ceg3120:latest
