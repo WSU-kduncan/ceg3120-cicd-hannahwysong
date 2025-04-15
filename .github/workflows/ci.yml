@@ -28,6 +28,6 @@ jobs:
           context: ./angular-site/angular-bird/wsu-hw-ng-main
           file: ./angular-site/angular-bird/wsu-hw-ng-main/Dockerfile
           push: true
-          tags: user/wysong-ceg3120:latest
+          tags: user/wysong-ceg3120
 
 
