@@ -2,9 +2,7 @@ name: ci
 
 on:
   push:
-      tags:
-      - '*'
-
+      
 jobs:
   docker:
     runs-on: ubuntu-latest
