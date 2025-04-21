@@ -19,7 +19,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: hannahwysong/wysong-ceg3120:latest
+          images: hannahwysong/wysong-ceg3120
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
