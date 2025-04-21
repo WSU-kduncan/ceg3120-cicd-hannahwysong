@@ -28,7 +28,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./angular-site/angular-bird/wsu-hw-ng-main
-          file: ./angular-site/angular-bird/wsu-hw-ng-main/Dockerfile
 	  push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           tags: ${{ secrets.DOCKER_USERNAME }}/wysong-ceg3120:latest
