@@ -9,6 +9,8 @@ WORKDIR /build
 
 COPY package*.json /build/ 
 
+RUN npm install 
+
 COPY angular.json /build/
 COPY *.json /build/
 COPY *.js /build/

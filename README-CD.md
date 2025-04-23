@@ -78,16 +78,16 @@ The pulled image can be ran and checked for any changes.
 
 ### EC2 Instance Details
 
-AMI information\
-Instance type\
-Recommended volume size\
+The instance uses ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20250305.\
+The instance is a t2.medium.\
+The instance has 30 gib storage.\
 Security Group configuration\
 Security Group configuration justification / explanation
 
 ###Docker Setup on OS on the EC2 instance
 
 How to install Docker for OS on the EC2 instance\
-Additional dependencies based on OS on the EC2 instance\
+Additional dependencies based on OS on the EC2 instance NPM \
 How to confirm Docker is installed and that OS on the EC2 instance can successfully run containers
 
 ### Testing on EC2 Instance
@@ -137,3 +137,5 @@ LINK to service file in repository
 
 ### References
 - [Docker MetaData Action](https://github.com/docker/metadata-action)
+- [Installing Docker on EC2](https://medium.com/@srijaanaparthy/step-by-step-guide-to-install-docker-on-ubuntu-in-aws-a39746e5a63d)
+
