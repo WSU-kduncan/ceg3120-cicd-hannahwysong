@@ -74,21 +74,42 @@ The image can be checked by pulling it from DockerHub, which can be done with th
 `docker pull hannahwysong/wysong-ceg3120:[tag name]`\
 The pulled image can be ran and checked for any changes. 
 
-### Part 2 - Continuous Deployment 
+## Part 2 - Continuous Deployment 
 
 ### EC2 Instance Details
 
-The instance uses ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20250305.\
+The instance uses ubuntu-noble-2404-amd64-server-20250305.\
 The instance is a t2.medium.\
-The instance has 30 gib storage.\
-Security Group configuration\
-Security Group configuration justification / explanation
+The instance has 30 gib storage.
 
-###Docker Setup on OS on the EC2 instance
+The security group has inbound rules allowing:
+- Inbound Rules for Home IP: 174.103.128.135/32
+- Inbound Rules for Office IP: 74.129.16.101/32
+- Inbound Rules for WSU IP: 130.108.0.0/16
+- Inbound Rules for Http(80) connection: 0.0.0.0/0
+- Inbound Rules for Port(4200) connection: 0.0.0.0/0
 
-How to install Docker for OS on the EC2 instance\
-Additional dependencies based on OS on the EC2 instance NPM \
-How to confirm Docker is installed and that OS on the EC2 instance can successfully run containers
+The inbound security ground rules are configured to be able to run the application.\
+The first three rules are so I can personally connect to the instance.\
+The Http connection is so that it can take requests on port 80.\
+The custom port connection is so the application can take requests on the specified port.
+
+
+### Docker Setup on OS on the EC2 instance
+
+Docker was installed to the instance by running the command,\
+`sudo apt-get install docker.io -y`\
+After running apt-get update to update all dependencies required.\
+The Docker service also had to be started with the command,\
+`sudo systemctl start docker`\
+
+The instance needed the application files, so I used tar -czvf the files.\
+As well as sftp to put them onto the instance.\
+NPM also had to be installed to the instance.\
+Which was done with `sudo apt-get install nodejs` and `sudo npm install`.
+
+Docker installation can be confirmed by running `docker --version`.\
+Docker can be tested by pulling an image such as docker/getting-started and checking for a response.
 
 ### Testing on EC2 Instance
 
@@ -138,4 +159,5 @@ LINK to service file in repository
 ### References
 - [Docker MetaData Action](https://github.com/docker/metadata-action)
 - [Installing Docker on EC2](https://medium.com/@srijaanaparthy/step-by-step-guide-to-install-docker-on-ubuntu-in-aws-a39746e5a63d)
+- [EC2 Security Rules for App](https://www.reddit.com/r/docker/comments/ypr9sl/cant_connect_to_ec2_container_but_can_my_my/)
 
