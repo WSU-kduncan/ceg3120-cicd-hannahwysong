@@ -113,14 +113,18 @@ Docker can be tested by pulling an image such as docker/getting-started and chec
 
 ### Testing on EC2 Instance
 
-How to pull container image from DockerHub repository\
-How to run container from image\
-Note the differences between using the -it flag and the -d flags and which you would recommend once the testing phase is complete\
-How to verify that the container is successfully serving the Angular application\
+The image for this project can be pulled with the command:\
+`docker pull hannahwysong/wysong-ceg3120:latest`\
+An image can be ran with the command:\
+`docker run -t -p 4200:4200 hannahwysong/wysong-ceg3120:latest`\
+The -d flag can be applied to run the container in the background after testing.\
+The application can be tested by using the instances public IP in place of local host in the browser.\
 validate from container side\
 validate from host side\
-validate from an external connection (your physical system)\
-Steps to manually refresh the container application if a new image is available on DockerHub\
+The application can be validated by searching for `http://[Instance IP]:4200` in a browser.\
+The container application can be refreshed by killing the old container\
+After which, the container and image are removed from the system.\
+Then a new image can be pulled from DockerHub.
 
 ### Scripting Container Application Refresh
 
