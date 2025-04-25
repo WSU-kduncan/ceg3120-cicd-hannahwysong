@@ -1,8 +1,8 @@
 [
   {
     "id": "deploy-script",
-    "execute-command": "/hannahwysong-cicd-ceg3120/deployment/container.sh",
-    "command-working-directory": "/hannahwysong-cicd-ceg3120/angular-site/angular-bird/wsu-hg-main",
+    "execute-command": "/home/ubuntu/ceg3120-cicd-hannahwysong/deployment/container.sh",
+    "command-working-directory": "/home/ubuntu/hannahwysong-cicd-ceg3120/angular-site/angular-bird/wsu-hg-main",
     "pass-arguments-to-command": [
       {
         "source": "payload",
