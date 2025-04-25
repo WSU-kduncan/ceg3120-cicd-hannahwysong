@@ -6,7 +6,7 @@
     "pass-arguments-to-command": [
       {
         "source": "payload",
-        "name": "hannahwysong-cicd-ceg3120.name"
+        "name": "hannahwysong-cicd-ceg3120"
       }
     ],
     "trigger-rule": {
@@ -23,7 +23,7 @@
         },
         {
           "match": {
-            "type": "payload-hash-sha1",
+            "type": "payload-hmac-sha1",
             "secret": "secret",
             "parameter": {
               "source": "header",
