@@ -146,11 +146,15 @@ LINK to bash script in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-
 
 ### Configuring a webhook Listener on EC2 Instance
 
-How to install adnanh's webhook to the EC2 instance\
-How to verify successful installation\
-Summary of the webhook definition file\
-How to verify definition file was loaded by webhook\
-How to verify webhook is receiving payloads that trigger it\
+WebHooks was installed to the container with the command `sudo apt-get install webhook`\
+The installation can be verified with `webhook -version`\
+The hooks.json file is set up to run the script whenever a push is triggered.\
+The push is made to the ceg3120-cicd-hannahwysong repository.\
+The repository must contain the secret specified. Which is located on github.\
+The hooks file can be verified by starting webhooks, which is done with the command,\
+`/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 4200`\
+Which starts webhooks with the config file on port 4200.\
+Webhooks can be tested by pushing a commit to the repository.\
 how to monitor logs from running webhook\
 what to look for in docker process views\
 LINK to definition file in repository
