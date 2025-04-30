@@ -119,8 +119,9 @@ An image can be ran with the command:\
 `docker run -t -p 4200:4200 hannahwysong/wysong-ceg3120:latest`\
 The -d flag can be applied to run the container in the background after testing.\
 The application can be tested by using the instances public IP in place of local host in the browser.\
-validate from container side\
-validate from host side\
+This can be validated from the container by curling http://localhost:4200/\
+This can be validated from the host side by replacing local host with the container IP.\
+For example, mine is `curl http://44.208.197.208:4200/`\
 The application can be validated by searching for `http://[Instance IP]:4200` in a browser.\
 The container application can be refreshed by killing the old container\
 After which, the container and image are removed from the system.\
@@ -128,12 +129,20 @@ Then a new image can be pulled from DockerHub.
 
 ### Scripting Container Application Refresh
 
-Create a bash script on your instance that will:\
-pull the image from your DockerHub repository\
-kill and remove the previously running container\
-start a new container with the freshly pulled image\
-How to test that the script successfully performs its taskings\
-LINK to bash script in repository
+```
+#!/bin/bash
+# stop container 
+docker stop angularapp
+# remove container
+docker remove angularapp
+# pull fresh image
+docker pull hannahwysong/wysong-ceg3120:latest
+# run new container by name, with restart automatic
+docker run -d -p 4200:4200 --name angularapp --restart always hannahwysong/wysong-ceg3120:latest%
+```
+The script can be tested by running the script.\
+For example, mine was `bash container.sh`, and resulted in a new container.\
+LINK to bash script in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/deployment/container.sh)
 
 ### Configuring a webhook Listener on EC2 Instance
 
