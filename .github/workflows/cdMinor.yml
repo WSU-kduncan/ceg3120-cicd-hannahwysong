@@ -41,7 +41,5 @@ jobs:
         name: Notify Webhook
         if: github.event_name != 'pull_request'
         run: |
-          curl -X POST -H "Content-Type: application/json" \
-            -d '{"text": "Docker image built and pushed: ${{ steps.meta.outputs.tags }}"}' \
-            https://http://0.0.0.0:9000/hooks/deploy-script
+          curl -X POST http://0.0.0.0:9000/hooks/deploy-script
 
