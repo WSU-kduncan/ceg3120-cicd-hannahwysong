@@ -8,26 +8,6 @@
         {
           "match": {
             "type": "value",
-            "value": "main",
-            "parameter": {
-              "source": "payload",
-              "name": "workflow_run.head_branch"
-            }
-          }
-        },
-        {
-          "match": {
-            "type": "value",
-            "value": "refs/heads/main",
-            "parameter": {
-              "source": "payload",
-              "name": "ref"
-            }
-          }
-        },
-        {
-          "match": {
-            "type": "value",
             "value": "refs/heads/main",
             "parameter": {
               "source": "payload",
