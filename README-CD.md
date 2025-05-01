@@ -10,57 +10,14 @@ This command must be ran after a commit is created.\
 A tag is pushed to Github with the command `git push --tags`
 ### Semantic Versioning Container Images with GitHub Actions
 The workflow is set up to push two images to Docker, a latest version, and a tagged one.
-```
-name: cd
-
-on:
-  workflow_dispatch:
-  push:
-    tags:
-      - 'v*'
-  pull_request:
-    branches:
-      - 'master'
-
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v4
-      -
-        name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: hannahwysong/wysong-ceg3120
-      -
-        name: Login to DockerHub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: ./angular-site/angular-bird/wsu-hw-ng-main
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-```
 This workflow is triggered when a push is made with a tag in the format v*\
-Or when a pull request is made to the main branch.\
 The job is created using the latest version of ubuntu.\
 The Checkout action copies the latest version of the repo to the workflow.\
 The Docker Meta action creates Docker image tags and stores them in ${{ steps.meta.outputs.tags }}.\
 The tags are taken from the DockerHub repository "hannahwysong/wysong-ceg3120".\
 The Docker login action logs into DockerHub using GitHub secrets.\
-This action is not performed on pull requests.\
-The build and push action pushes the image using the tags created. 
-
+The build and push action pushes the image using the tags created.\
+The final step, which was created by ChatGpt, sends a payload to the webhook.\
 If used in a different repository, the context for the build files must be changed.\
 The Docker image can also be changed if using a different docker repository.
 
@@ -93,7 +50,8 @@ The security group has inbound rules allowing:
 The inbound security ground rules are configured to be able to run the application.\
 The first three rules are so I can personally connect to the instance.\
 The Http connection is so that it can take requests on port 80.\
-The custom port connection is so the application can take requests on the specified port.
+The custom port connection is so the application can take requests on the specified port.\
+The second custom port connection is for webhooks.
 
 
 ### Docker Setup on OS on the EC2 instance
@@ -149,9 +107,8 @@ LINK to bash script in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-
 
 WebHooks was installed to the container with the command `sudo apt-get install webhook`\
 The installation can be verified with `webhook -version`\
-The hooks.json file is set up to run the script whenever a push is triggered.\
-The push is made to the ceg3120-cicd-hannahwysong repository.\
-The repository must contain the secret specified. Which is located on github.\
+The hooks.json file is set up to run the script whenever it receieves a payload.\
+The payload must contain the secret specified. Which is located on github.\
 The hooks file can be verified by starting webhooks, which is done with the command,\
 `/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 9000`\
 Which starts webhooks with the config file on port 9000.\
@@ -167,7 +124,7 @@ I chose github as the payload sender since it was able to be triggered by more a
 Such as a workflow run, which would happen after an update to the application.\
 Github webhooks are set up in the settings of a repository.\
 My repository is set to send a payload whenever a push is made to it.\
-This can be verfifed by watching a webhooks listener after a push.
+This can be verfifed by watching a webhooks listener after it recieves a payload.
 
 ### Configure a webhook Service on EC2 Instance
 
