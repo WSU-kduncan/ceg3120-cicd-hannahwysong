@@ -176,7 +176,7 @@ Otherwise, a new container can be ran with the image to check changes made to th
 The goal of this project was continuous integration, or an container that stays up to date.\
 This project uses DockerHub to build an image of the application files\
 The project also uses GitHub to update any changes to the code on DockerHub
-![project diagram](diagram.png)
+![project diagram](diagram-ci.png)
 
 
 ### References
