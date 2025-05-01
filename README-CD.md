@@ -74,7 +74,7 @@ Docker was installed to the instance by running the command,\
 `sudo apt-get install docker.io -y`\
 After running apt-get update to update all dependencies required.\
 The Docker service also had to be started with the command,\
-`sudo systemctl start docker`\
+`sudo systemctl start docker`
 
 The instance needed the application files, so I used tar -czvf the files.\
 As well as sftp to put them onto the instance.\
