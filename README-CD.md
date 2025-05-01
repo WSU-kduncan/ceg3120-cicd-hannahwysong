@@ -179,4 +179,7 @@ LINK to service file in repository
 - [Docker MetaData Action](https://github.com/docker/metadata-action)
 - [Installing Docker on EC2](https://medium.com/@srijaanaparthy/step-by-step-guide-to-install-docker-on-ubuntu-in-aws-a39746e5a63d)
 - [EC2 Security Rules for App](https://www.reddit.com/r/docker/comments/ypr9sl/cant_connect_to_ec2_container_but_can_my_my/)
+- [Systemd Webhook Config file](https://medium.com/the-sysadmin/deploy-from-github-gitlab-to-server-using-webhook-d1cb6496368f)
+- [Offical Systemd documentation](https://github.com/adnanh/webhook/blob/master/docs/Systemd-Activation.md)
+- [Viewing service logs](https://github.com/adnanh/webhook/discussions/569)
 
