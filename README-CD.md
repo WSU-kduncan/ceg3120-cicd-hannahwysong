@@ -8,7 +8,7 @@ This project uses GitHub Actions to update the container image and send a payloa
 This project uses Webhooks to run a script to update the container when notified.\
 The project is hosted on an AWS EC2 instance so that it can run constantly.
 
-Diagram of project\
+![project diagram](diagram-cd.png)
 
 ## Part 1 - Semantic Versioning
 ### Generating tags

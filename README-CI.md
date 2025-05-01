@@ -1,4 +1,10 @@
 # Project 4 CI 
+### Continuous Integration Project Overview
+The goal of this project was continuous integration, or an container that stays up to date.\
+This project uses DockerHub to build an image of the application files\
+The project also uses GitHub to update any changes to the code on DockerHub
+![project diagram](diagram-ci.png)
+
 ## Part 1 - Dockerize it
 ### Project Overview 
 This project uses Docker to containerize an angular application.\
@@ -170,13 +176,6 @@ A red circle appears next to the workflow if it failed. GitHub also sends the us
 The image in Dockerhub can be checked by pulling the most recent version after running the workflow.\
 Changes to the Dockerfile can be checked by inspecting the image.\
 Otherwise, a new container can be ran with the image to check changes made to the application.
-
-## Part 3 - Project Description and Diagram
-### Continuous Integration Project Overview
-The goal of this project was continuous integration, or an container that stays up to date.\
-This project uses DockerHub to build an image of the application files\
-The project also uses GitHub to update any changes to the code on DockerHub
-![project diagram](diagram-ci.png)
 
 
 ### References
