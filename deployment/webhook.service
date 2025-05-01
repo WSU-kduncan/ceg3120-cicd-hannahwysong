@@ -1,0 +1,10 @@
+[Unit]
+Description=Webhook server
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/webhook -nopanic -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json --verbose
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
