@@ -17,16 +17,6 @@
         },
         {
           "match": {
-            "type": "value",
-            "value": "completed",
-            "parameter": {
-              "source": "payload",
-              "name": "action"
-            }
-          }
-        },
-        {
-          "match": {
             "type": "payload-hmac-sha1",
             "secret": "secret",
             "parameter": {
@@ -39,4 +29,3 @@
     }
   }
 ]
-
