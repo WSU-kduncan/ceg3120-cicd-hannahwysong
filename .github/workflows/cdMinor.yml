@@ -41,5 +41,7 @@ jobs:
         name: Notify Webhook
         if: github.event_name != 'pull_request'
         run: |
-          curl -X POST http://44.208.197.208:9000/hooks/deploy-script
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"action": "run"}' \ 
+            http://44.208.197.208:9000/hooks/deploy-script
 
