@@ -170,7 +170,7 @@ This can be verfifed by watching a webhooks listener after a push.
 ### Configure a webhook Service on EC2 Instance
 
 Summary of webhook service file contents\
-How to enable and start the webhook service\
+The webhook service is first restarted after any changes using `sudo systemctl daemon-reload` \
 How to verify webhook service is capturing payloads and triggering bash script\
 LINK to service file in repository
 
