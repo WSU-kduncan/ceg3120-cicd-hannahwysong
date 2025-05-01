@@ -173,7 +173,7 @@ Summary of webhook service file contents\
 The webhook service is first restarted after any changes using `sudo systemctl daemon-reload` \
 Then it is restarted with the command `sudo systemctl restart webhook`\
 And started with the command `sudo systemctl restart webhook`\
-This can be verified with `sudo systemctl status webhook`\
+The status of webhooks can be veiwed with `sudo systemctl status webhook`\
 The service logs can be veiwed with the command `journalctl -u webhook`\
 LINK to service file in repository
 
