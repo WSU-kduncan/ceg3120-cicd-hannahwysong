@@ -1,4 +1,13 @@
 # Project 5 CD 
+## Continuous Deployment Project Overview
+The goal of this project is to configure webhooks update an applicate whenever changes are made.\
+This project uses DockerHub to host the images for the containers.\
+This project uses Github to push updates to the code.\
+This project uses GitHub Actions to update the container image and send a payload.\
+This project uses Webhooks to run a script to update the container when notified.\
+The project is hosted on an AWS EC2 instance so that it can run constantly.
+Diagram of project\
+
 ## Part 1 - Semantic Versioning
 ### Generating tags
 Tags for a git repository can be viewed by typing `git tag` into the CLI.
@@ -18,6 +27,7 @@ The tags are taken from the DockerHub repository "hannahwysong/wysong-ceg3120".\
 The Docker login action logs into DockerHub using GitHub secrets.\
 The build and push action pushes the image using the tags created.\
 The final step, which was created by ChatGpt, sends a payload to the webhook.\
+It took multiple prompts with error messages to determine how to fix the hooks.json and cd.yml\
 If used in a different repository, the context for the build files must be changed.\
 The Docker image can also be changed if using a different docker repository.
 
