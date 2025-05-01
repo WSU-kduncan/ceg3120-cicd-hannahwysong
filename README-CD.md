@@ -171,7 +171,9 @@ This can be verfifed by watching a webhooks listener after a push.
 
 Summary of webhook service file contents\
 The webhook service is first restarted after any changes using `sudo systemctl daemon-reload` \
-Then it is restarted with the command `sudo systemctl start webhook`\
+Then it is restarted with the command `sudo systemctl restart webhook`\
+And started with the command `sudo systemctl restart webhook`\
+This can be verified with `sudo systemctl status webhook`\
 How to verify webhook service is capturing payloads and triggering bash script\
 LINK to service file in repository
 
