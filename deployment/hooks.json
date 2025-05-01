@@ -8,10 +8,30 @@
         {
           "match": {
             "type": "value",
-            "value": "refs/heads/main",
+            "value": "main",
             "parameter": {
               "source": "payload",
-              "name": "ref"
+              "name": "workflow_run.head_branch"
+            }
+          }
+        },
+        {
+          "match": {
+            "type": "value",
+            "value": "completed",
+            "parameter": {
+              "source": "payload",
+              "name": "action"
+            }
+          }
+        },
+        {
+          "match": {
+            "type": "value",
+            "value": "success",
+            "parameter": {
+              "source": "payload",
+              "name": "workflow_run.conclusion"
             }
           }
         },
@@ -29,3 +49,4 @@
     }
   }
 ]
+
