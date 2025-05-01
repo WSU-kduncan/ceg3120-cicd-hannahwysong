@@ -174,7 +174,7 @@ The webhook service is first restarted after any changes using `sudo systemctl d
 Then it is restarted with the command `sudo systemctl restart webhook`\
 And started with the command `sudo systemctl restart webhook`\
 This can be verified with `sudo systemctl status webhook`\
-How to verify webhook service is capturing payloads and triggering bash script\
+The service logs can be veiwed with the command `journalctl -u webhook`\
 LINK to service file in repository
 
 ### References
