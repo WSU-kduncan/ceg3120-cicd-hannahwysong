@@ -18,20 +18,30 @@
         {
           "match": {
             "type": "value",
-            "value": "completed",
+            "value": "refs/heads/main",
             "parameter": {
               "source": "payload",
-              "name": "action"
+              "name": "ref"
             }
           }
         },
         {
           "match": {
             "type": "value",
-            "value": "success",
+            "value": "refs/heads/main",
             "parameter": {
               "source": "payload",
-              "name": "workflow_run.conclusion"
+              "name": "ref"
+            }
+          }
+        },
+        {
+          "match": {
+            "type": "value",
+            "value": "completed",
+            "parameter": {
+              "source": "payload",
+              "name": "action"
             }
           }
         },
