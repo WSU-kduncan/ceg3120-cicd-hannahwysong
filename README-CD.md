@@ -88,6 +88,7 @@ The security group has inbound rules allowing:
 - Inbound Rules for WSU IP: 130.108.0.0/16
 - Inbound Rules for Http(80) connection: 0.0.0.0/0
 - Inbound Rules for Port(4200) connection: 0.0.0.0/0
+- Inbound Rules for Port(9000) connection: 0.0.0.0/0
 
 The inbound security ground rules are configured to be able to run the application.\
 The first three rules are so I can personally connect to the instance.\
@@ -181,7 +182,6 @@ The status of webhooks can be veiwed with `sudo systemctl status webhook`\
 The status also shows whether the hook is properly recieving payloads.\
 A new container should be started after a payload is received.\
 LINK to service file in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/deployment/webhook.service)
-
 
 ### References
 - [Docker MetaData Action](https://github.com/docker/metadata-action)
