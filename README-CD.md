@@ -161,10 +161,11 @@ LINK to definition file in [repository](https://github.com/WSU-kduncan/ceg3120-c
 
 ### Configuring a Payload Sender
 
-Justification for selecting GitHub or DockerHub as the payload sender\
-How to enable your selection to send payloads to the EC2 webhook listener\
-Explain what triggers will send a payload to the EC2 webhook listener\
-How to verify a successful payload delivery
+I chose github as the payload sender since it was able to be triggered by more actions.\
+Such as a workflow run, which would happen after an update to the application.\
+Github webhooks are set up in the settings of a repository.\
+My repository is set to send a payload whenever a push is made to it.\
+This can be verfifed by watching a webhooks listener after a push.
 
 ### Configure a webhook Service on EC2 Instance
 
