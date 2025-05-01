@@ -155,9 +155,9 @@ The hooks file can be verified by starting webhooks, which is done with the comm
 `/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 4200`\
 Which starts webhooks with the config file on port 4200.\
 Webhooks can be tested by pushing a commit to the repository.\
-how to monitor logs from running webhook\
-what to look for in docker process views\
-LINK to definition file in repository
+Webhooks should indicate that it is serving hooks when the push is made.\
+Webhook logs should be printed to the terminal if ran with the -verbose flag\
+LINK to definition file in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/deployment/hooks.json)
 
 ### Configuring a Payload Sender
 
