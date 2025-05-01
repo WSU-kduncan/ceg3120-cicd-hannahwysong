@@ -1,11 +1,13 @@
 # Project 5 CD 
 ## Continuous Deployment Project Overview
-The goal of this project is to configure webhooks update an applicate whenever changes are made.\
+The goal of this project is to configure webhooks update an applicate whenever changes are made.
+
 This project uses DockerHub to host the images for the containers.\
 This project uses Github to push updates to the code.\
 This project uses GitHub Actions to update the container image and send a payload.\
 This project uses Webhooks to run a script to update the container when notified.\
 The project is hosted on an AWS EC2 instance so that it can run constantly.
+
 Diagram of project\
 
 ## Part 1 - Semantic Versioning
@@ -19,6 +21,7 @@ This command must be ran after a commit is created.\
 A tag is pushed to Github with the command `git push --tags`
 ### Semantic Versioning Container Images with GitHub Actions
 The workflow is set up to push two images to Docker, a latest version, and a tagged one.
+
 This workflow is triggered when a push is made with a tag in the format v*\
 The job is created using the latest version of ubuntu.\
 The Checkout action copies the latest version of the repo to the workflow.\
@@ -27,7 +30,8 @@ The tags are taken from the DockerHub repository "hannahwysong/wysong-ceg3120".\
 The Docker login action logs into DockerHub using GitHub secrets.\
 The build and push action pushes the image using the tags created.\
 The final step, which was created by ChatGpt, sends a payload to the webhook.\
-It took multiple prompts with error messages to determine how to fix the hooks.json and cd.yml\
+It took multiple prompts with error messages to determine how to fix the hooks.json and cd.yml
+
 If used in a different repository, the context for the build files must be changed.\
 The Docker image can also be changed if using a different docker repository.
 
@@ -85,12 +89,14 @@ Docker can be tested by pulling an image such as docker/getting-started and chec
 The image for this project can be pulled with the command:\
 `docker pull hannahwysong/wysong-ceg3120:latest`\
 An image can be ran with the command:\
-`docker run -t -p 4200:4200 hannahwysong/wysong-ceg3120:latest`\
+`docker run -t -p 4200:4200 hannahwysong/wysong-ceg3120:latest`
+
 The -d flag can be applied to run the container in the background after testing.\
 The application can be tested by using the instances public IP in place of local host in the browser.\
 This can be validated from the container by curling http://localhost:4200/\
 This can be validated from the host side by replacing local host with the container IP.\
-For example, mine is `curl http://44.208.197.208:4200/`\
+For example, mine is `curl http://44.208.197.208:4200/`
+
 The application can be validated by searching for `http://[Instance IP]:4200` in a browser.\
 The container application can be refreshed by killing the old container\
 After which, the container and image are removed from the system.\
@@ -116,13 +122,15 @@ LINK to bash script in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-
 ### Configuring a webhook Listener on EC2 Instance
 
 WebHooks was installed to the container with the command `sudo apt-get install webhook`\
-The installation can be verified with `webhook -version`\
+The installation can be verified with `webhook -version`
+
 The hooks.json file is set up to run the script whenever it receieves a payload.\
 The payload must contain the secret specified. Which is located on github.\
 The hooks file can be verified by starting webhooks, which is done with the command,\
 `/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 9000`\
 Which starts webhooks with the config file on port 9000.\
-Webhooks cannot be started listening on the same port as the container. It will cause issues.\
+Webhooks cannot be started listening on the same port as the container. It will cause issues.
+
 Webhooks can be tested by pushing a commit to the repository.\
 Webhooks should indicate that it is serving hooks when the push is made.\
 Webhook logs should be printed to the terminal if ran with the -verbose flag\
@@ -132,8 +140,9 @@ LINK to definition file in [repository](https://github.com/WSU-kduncan/ceg3120-c
 
 I chose github as the payload sender since it was able to be triggered by more actions.\
 Such as a workflow run, which would happen after an update to the application.\
-Github webhooks are set up in the settings of a repository.\
-My repository is set to send a payload whenever a push is made to it.\
+Github webhooks are set up in the settings of a repository.
+
+My repository is set to send a payload at the end of the workflow.\
 This can be verfifed by watching a webhooks listener after it recieves a payload.
 
 ### Configure a webhook Service on EC2 Instance
@@ -141,10 +150,12 @@ This can be verfifed by watching a webhooks listener after it recieves a payload
 The webhook service file is set up to create a webhook service that starts with the instance.\
 The service starts with execution and launches the webhook I just made.\
 The ubuntu user has the correct permissions to start the hooks.\
-The install allows the service to start when any user logs in.\
+The install allows the service to start when any user logs in.
+
 The webhook service is first restarted after any changes using `sudo systemctl daemon-reload` \
 Then it is restarted with the command `sudo systemctl restart webhook`\
-And started with the command `sudo systemctl restart webhook`\
+And started with the command `sudo systemctl restart webhook`
+
 The status of webhooks can be veiwed with `sudo systemctl status webhook`\
 The status also shows whether the hook is properly recieving payloads.\
 A new container should be started after a payload is received.\
