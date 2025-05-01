@@ -42,6 +42,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           curl -X POST -H "Content-Type: application/json" \
+          -H "X-Hub-Signature: sha1=53123a2ed2ffa2a45537fd1f34517c8e17d0ddb1" \
           -d '{"ref": "refs/heads/main"}' \
           http://44.208.197.208:9000/hooks/deploy-script
 
