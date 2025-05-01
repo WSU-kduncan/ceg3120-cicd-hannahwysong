@@ -170,13 +170,17 @@ This can be verfifed by watching a webhooks listener after a push.
 
 ### Configure a webhook Service on EC2 Instance
 
-Summary of webhook service file contents\
+The webhook service file is set up to create a webhook service that starts with the instance.\
+The service starts with execution and launches the webhook I just made.\
+The ubuntu user has the correct permissions to start the hooks.\
+The install allows the service to start when any user logs in.\
 The webhook service is first restarted after any changes using `sudo systemctl daemon-reload` \
 Then it is restarted with the command `sudo systemctl restart webhook`\
 And started with the command `sudo systemctl restart webhook`\
 The status of webhooks can be veiwed with `sudo systemctl status webhook`\
-The service logs can be veiwed with the command `journalctl -u webhook`\
-LINK to service file in repository
+The status also shows whether the hook is properly recieving payloads.\
+A new container should be started after a payload is received.\
+LINK to service file in [repository](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/deployment/webhook.service)
 
 ### References
 - [Docker MetaData Action](https://github.com/docker/metadata-action)
@@ -185,4 +189,5 @@ LINK to service file in repository
 - [Systemd Webhook Config file](https://medium.com/the-sysadmin/deploy-from-github-gitlab-to-server-using-webhook-d1cb6496368f)
 - [Offical Systemd documentation](https://github.com/adnanh/webhook/blob/master/docs/Systemd-Activation.md)
 - [Viewing service logs](https://github.com/adnanh/webhook/discussions/569)
+- [Multi-user.target Explained](https://unix.stackexchange.com/questions/506347/why-do-most-systemd-examples-contain-wantedby-multi-user-target)
 
