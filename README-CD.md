@@ -152,8 +152,9 @@ The hooks.json file is set up to run the script whenever a push is triggered.\
 The push is made to the ceg3120-cicd-hannahwysong repository.\
 The repository must contain the secret specified. Which is located on github.\
 The hooks file can be verified by starting webhooks, which is done with the command,\
-`/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 4200`\
-Which starts webhooks with the config file on port 4200.\
+`/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 9000`\
+Which starts webhooks with the config file on port 9000.\
+Webhooks cannot be started listening on the same port as the container. It will cause issues.\
 Webhooks can be tested by pushing a commit to the repository.\
 Webhooks should indicate that it is serving hooks when the push is made.\
 Webhook logs should be printed to the terminal if ran with the -verbose flag\
