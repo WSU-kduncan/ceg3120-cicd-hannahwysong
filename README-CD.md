@@ -30,7 +30,8 @@ The tags are taken from the DockerHub repository "hannahwysong/wysong-ceg3120".\
 The Docker login action logs into DockerHub using GitHub secrets.\
 The build and push action pushes the image using the tags created.\
 The final step, which was created by ChatGpt, sends a payload to the webhook.\
-It took multiple prompts with error messages to determine how to fix the hooks.json and cd.yml
+It took my prompt combined with error messages to determine how to fix the hooks.json and cd.yml\
+The prompt was "how to create a github action that will send a payload to webhooks"
 
 If used in a different repository, the context for the build files must be changed.\
 The Docker image can also be changed if using a different docker repository.
@@ -76,8 +77,8 @@ After running apt-get update to update all dependencies required.\
 The Docker service also had to be started with the command,\
 `sudo systemctl start docker`
 
-The instance needed the application files, so I used tar -czvf the files.\
-As well as sftp to put them onto the instance.\
+The instance needed the application files, so I created a git key.\
+Then cloned the repository onto my instance.\
 NPM also had to be installed to the instance.\
 Which was done with `sudo apt-get install nodejs` and `sudo npm install`.
 
@@ -126,6 +127,8 @@ The installation can be verified with `webhook -version`
 
 The hooks.json file is set up to run the script whenever it receieves a payload.\
 The payload must contain the secret specified. Which is located on github.\
+The secret authentication trigger was generated on chatgpt.\
+With the prompt "create a hooks.json file that authenticates a git secret"\
 The hooks file can be verified by starting webhooks, which is done with the command,\
 `/usr/bin/webhook -hooks /home/ubuntu/ceg3120-cicd-hannahwysong/deployment/hooks.json -verbose -port 9000`\
 Which starts webhooks with the config file on port 9000.\
