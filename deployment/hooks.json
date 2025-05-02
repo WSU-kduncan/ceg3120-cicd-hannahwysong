@@ -7,8 +7,8 @@
       "and": [
         {
           "match": {
-        "type": "refs/heads/main",
-        "value": "run",
+        "type": "value",
+        "value": "refs/heads/main",
         "parameter": {
           "source": "payload",
           "name": "ref"

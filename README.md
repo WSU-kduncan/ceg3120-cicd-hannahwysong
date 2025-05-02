@@ -12,6 +12,10 @@ The deployment folder has a copy of the container script.\
 The script reloads the container with a build of the newest image on DockerHub.
 
 The deployment folder also has a copy of the webhook configuration file.\
+The hooks file will run the script when triggered.\
+The hook will trigger successfully whenever it recieves information from a repo with the secret.
 
+The deployment folder also has a copy of the webhooks service file.\
+This starts webhooks as a service when the instance is started.
 ### [CI](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/README-CI.md) README
 ### [CD](https://github.com/WSU-kduncan/ceg3120-cicd-hannahwysong/blob/main/README-CD.md) README
