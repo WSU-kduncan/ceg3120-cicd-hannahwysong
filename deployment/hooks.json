@@ -7,11 +7,11 @@
       "and": [
         {
           "match": {
-        "type": "value",
+        "type": "refs/heads/main",
         "value": "run",
         "parameter": {
           "source": "payload",
-          "name": "action"
+          "name": "ref"
         }
       }
         },
